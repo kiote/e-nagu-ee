@@ -1,6 +1,7 @@
 defmodule ENaguEe.CLI do
   @commands %{
-    "quit" => "Quit the CLI"
+    "quit" => "Quit the CLI",
+    "week1" => "week one sentences"
   }
 
   def main(_args) do
@@ -27,6 +28,10 @@ defmodule ENaguEe.CLI do
 
   defp execute_command("quit") do
     IO.puts "\nBye!"
+  end
+
+  defp execute_command("week1") do
+    Sentences.start("week1")
   end
 
   defp execute_command(_) do
