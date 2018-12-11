@@ -1,6 +1,6 @@
 defmodule Sentences do
   alias Sentences.Sentence
-  @sentences = [
+  @sentences [
     %Sentence{sentence: "Pilet maksab sada eurot", translation: "Билет стоит сто евро"},
     %Sentence{sentence: "Ma tahaksin ühte tassi kohvi, palun", translation: "Мне пожалуйста одну чашку кофе"},
     %Sentence{sentence: "See on minu arvates parem", translation: "По-моему, это лучше"},
@@ -16,5 +16,22 @@ defmodule Sentences do
 
   def start("week1") do
     IO.puts "Starting week1 session:\n"
+    current = current_sentence()
+    
+    IO.puts(current.sentence)
+
+    translation = IO.gets("\n> ") |> String.trim
+    
+    if translation == current.translation do
+      IO.puts "Correct!"
+    else
+      IO.puts "Wrong. Should be: #{current.translation}"
+    end
+  end
+
+  defp current_sentence do
+    @sentences 
+    |> Enum.take_random(1) 
+    |> Enum.at(0) 
   end
 end

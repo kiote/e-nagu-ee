@@ -20,7 +20,7 @@ defmodule ENaguEe.CLI do
   end
 
   defp receive_command do
-    IO.gets("\n> ")
+    IO.gets("\nEnter command\n> ")
     |> String.trim
     |> String.downcase
     |> execute_command
@@ -32,6 +32,7 @@ defmodule ENaguEe.CLI do
 
   defp execute_command("week1") do
     Sentences.start("week1")
+    receive_command()
   end
 
   defp execute_command(_) do
